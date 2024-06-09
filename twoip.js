@@ -1,6 +1,7 @@
 class twoip{
     constructor(){
         this.api = "https://2ip.me/service"
+        this.api_2 ="https://api.2ip.me/"
         this.headers={"X-MINER-VERSION": "EXTERNAL-bc10c1fa"}
         this.wallet=null
     }
@@ -32,6 +33,21 @@ class twoip{
     }
     async dns_check(host,server,type){
         return (await this.req(`${this.api}/dns-check/dns_check.php?a=check`,{"host":host,"server":server,"type":type}));
+    }
+    async email_info(email){
+        return (await this.req(`${this.api_2}/email.json?email=${email}`));
+    }
+    async mac_check(mac){
+        return(await this.req(`${this.api_2}/mac.json?mac=${mac}`))
+    }
+    async provider_check(ip){
+        return (await this.req(`${this.api_2}/provider.json?ip=${ip}`));
+    }
+    async site_hosting(site){
+        return (await this.req(`${this.api_2}/hosting.json?site=${site}`));
+    }
+    async geo_check(ip){
+        return (await this.req(`${this.api}/geo.json?ip=${ip}`));
     }
 }
 module.exports = {twoip};

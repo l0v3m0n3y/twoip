@@ -47,7 +47,7 @@ class twoip{
         return (await this.req(`${this.api_2}/hosting.json?site=${site}`));
     }
     async geo_check(ip){
-        return (await this.req(`${this.api}/geo.json?ip=${ip}`));
+        return (await this.req(`${this.api_2}/geo.json?ip=${ip}`));
     }
 }
 module.exports = {twoip};
